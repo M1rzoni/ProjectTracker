@@ -1,0 +1,74 @@
+.sidebar-container {
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+.sidebar-container a {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+}
+
+.sidebar-container a.active {
+  background-color: #04aa6d;
+  color: white;
+}
+
+.sidebar-container a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+
+.btn {
+  padding: 16px;
+  display: block;
+  border: none;
+  color: black;
+  background-color: white;
+}
+
+.btn:hover {
+  background-color: red;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 700px) {
+  .sidebar-container {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .sidebar-container a {
+    float: left;
+  }
+  div.content {
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .sidebar-container a {
+    text-align: center;
+    float: none;
+  }
+}
+
+.kontent {
+  display: none;
+  position: absolute;
+  background-color: aliceblue;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.padajuci-meni:hover .kontent {
+  display: block;
+}
