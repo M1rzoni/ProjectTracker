@@ -7,11 +7,13 @@ import { startSession } from 'mongoose'
 
 function Calendar(props) {
 
+  const allEvents = [...props.events, ...props.newEvent]
+
   return (
     <div className='calendar-container'>
         <FullCalendar
             plugins={[dayGridPlugin,timeGridPlugin,interactionPlugin]}
-            events={props.events}
+            events={allEvents}
         />
     </div>
   )

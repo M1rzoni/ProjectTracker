@@ -7,11 +7,14 @@ function CreateNewProject(props) {
     <div className="New-Project-Container">
       <div className="input-container">
         <h1>Novi Projekat</h1>
+        <label>
+        Početak projekta:
         <input
           type="date"
           value={props.selectedDate}
           onChange={props.dateValue}
         />
+        </label>
         <input
           value={props.nameInput}
           onChange={props.handleNameInput}
@@ -36,7 +39,14 @@ function CreateNewProject(props) {
           type="number"
           placeholder="Broj Dozvole"
         />
+
+        <label>
+           Kraj projekta:
+          <input type="date" onChange={props.valueOfEnd} />
+        </label>
+        <input type="checkbox" />
         <button onClick={props.addCal}>Dodaj</button>
+        <button onClick={props.endCal}>Dodaj u kalendar</button>
         {props.data.map((item, index) => (
           <div className="new-project-container" key={index}>
             <p>Naziv projekta: {item.naziv}</p>

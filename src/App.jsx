@@ -17,6 +17,8 @@ function App() {
   const [selectedProjectName, setSelectedProjectName] = useState("");
   const [dateValue, setDateValue] = useState('');
   const [events, setEvents] = useState([]);
+  const [endDateValue, setEndDateValue] = useState('');
+  const [event, setEvent] = useState([]);
 
 
   const handleAddEvent = () => {
@@ -24,15 +26,34 @@ function App() {
       const newEvent = {
         title: nameInput,
         date: dateValue,
-        backgroundColor: 'red', 
+        backgroundColor: 'green', 
       };
       setEvents([...events, newEvent]);
       setNameInput('');
       setDateValue('');
     } else {
-      alert('Please provide both name and date for the event.');
+      alert('Neka polja nisu popunjena.');
     }
   };
+
+  const handelEndEvent = () => {
+
+    if(nameInput && endDateValue){
+      const newEvent = {
+        title: nameInput,
+        date: endDateValue,
+        backgroundColor: "red"
+      };
+      setEvent([...event, newEvent]);
+    }else {
+      alert("Polje je ostalo prazno")
+    }
+  }
+
+  const valueOfEnd = event => {
+
+    setEndDateValue(event.target.value);
+  }
 
 
   const valueOfDate  = (event) => {
@@ -134,11 +155,13 @@ function App() {
           onDateInputChange={handleDateInputChange}
           onProjectNameInputChange={handleProjectNameInputChange}
           dateValue ={valueOfDate}
+          valueOfEnd = {valueOfEnd}
           addCal = {handleAddEvent}
+          endCal = {handelEndEvent}
         />
       )}
 
-      {showCal && <Calendar events = {events} nameValue = {nameInput} />}
+      {showCal && <Calendar newEvent = {event} events = {events} nameValue = {nameInput} />}
     </div>
   );
 }
